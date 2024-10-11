@@ -19,11 +19,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
         'role', 
         'nid', 
-        'phone'
+        'phone',
+        'dob',
+        'gender',
+        'permanent_address',
+        'image'
     ];
 
     /**
@@ -48,7 +50,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
+    
+    // Define relationship with Credential
+    public function credential()
+    {
+        return $this->hasOne(Credential::class);
+    }
     public function apartments()
     {
         return $this->hasMany(Apartment::class);

@@ -20,6 +20,11 @@ return new class extends Migration
             $table->tinyInteger('role')->default(1); // 0 for owner, 1 for tenant
             $table->string('nid')->unique();
             $table->string('phone');
+            $table->date('dob');
+            $table->tinyInteger('gender');
+            $table->string('permanent_address');
+            $table->string('image');
+
             $table->rememberToken();
             $table->timestamps();
         });
